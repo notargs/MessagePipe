@@ -12,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "jp.hadashikick.vcontainer",
+            "expression": "1.14.0",
+            "define": "MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT"
+        }
+    ],
     "noEngineReferences": true
 }

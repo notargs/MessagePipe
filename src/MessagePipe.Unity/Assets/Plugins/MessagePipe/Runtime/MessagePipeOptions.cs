@@ -40,7 +40,7 @@ namespace MessagePipe
         /// <summary>AsyncPublisher.PublishAsync's concurrent starategy, default is Parallel.</summary>
         public AsyncPublishStrategy DefaultAsyncPublishStrategy { get; set; }
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWE || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
         public bool EnableAutoRegistration { get; set; }
 
 #endif
@@ -64,14 +64,14 @@ namespace MessagePipe
             this.RequestHandlerLifetime = InstanceLifetime.Scoped;
             this.EnableCaptureStackTrace = false;
             this.HandlingSubscribeDisposedPolicy = HandlingSubscribeDisposedPolicy.Ignore;
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
             this.EnableAutoRegistration = true;
             this.autoregistrationAssemblies = null;
             this.autoregistrationTypes = null;
 #endif
         }
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         // auto-registration
 
@@ -119,7 +119,7 @@ namespace MessagePipe
 
         List<FilterDefinition> messageHandlerFilters = new List<FilterDefinition>();
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         /// <summary>
         /// If register open generics(typeof(MyFilter&lt;&gt;)) to register all message types.
@@ -147,7 +147,7 @@ namespace MessagePipe
 
         List<FilterDefinition> asyncMessageHandlerFilters = new List<FilterDefinition>();
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         /// <summary>
         /// If register open generics(typeof(MyFilter&lt;&gt;)) to register all message types.
@@ -175,7 +175,7 @@ namespace MessagePipe
 
         List<FilterDefinition> requestHandlerFilters = new List<FilterDefinition>();
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         /// <summary>
         /// If register open generics(typeof(MyFilter&lt;&gt;)) to register all message types.
@@ -203,7 +203,7 @@ namespace MessagePipe
 
         List<FilterDefinition> asyncRequestHandlerFilters = new List<FilterDefinition>();
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         /// <summary>
         /// If register open generics(typeof(MyFilter&lt;&gt;)) to register all message types.

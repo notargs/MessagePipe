@@ -28,7 +28,7 @@ namespace MessagePipe
             services.AddSingleton(options);
             services.Add(typeof(UdpWorker), options.InstanceLifetime);
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
             services.Add(typeof(IDistributedPublisher<,>), typeof(UdpDistributedPublisher<,>), options.InstanceLifetime);
             services.Add(typeof(IDistributedSubscriber<,>), typeof(UdpDistributedSubscriber<,>), options.InstanceLifetime);
             return services;
@@ -51,7 +51,7 @@ namespace MessagePipe
             services.AddSingleton(options);
             services.Add(typeof(TcpWorker), options.InstanceLifetime);
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
             services.Add(typeof(IDistributedPublisher<,>), typeof(TcpDistributedPublisher<,>), options.InstanceLifetime);
             services.Add(typeof(IDistributedSubscriber<,>), typeof(TcpDistributedSubscriber<,>), options.InstanceLifetime);
             services.Add(typeof(IRemoteRequestHandler<,>), typeof(TcpRemoteRequestHandler<,>), options.InstanceLifetime);
@@ -80,7 +80,7 @@ namespace MessagePipe
             services.AddSingleton(options);
             services.Add(typeof(NamedPipeWorker), options.InstanceLifetime);
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
             services.Add(typeof(IDistributedPublisher<,>), typeof(NamedPipeDistributedPublisher<,>), InstanceLifetime.Singleton);
             services.Add(typeof(IDistributedSubscriber<,>), typeof(NamedPipeDistributedSubscriber<,>), InstanceLifetime.Singleton);
             services.Add(typeof(IRemoteRequestHandler<,>), typeof(NamedPipeRemoteRequestHandler<,>), options.InstanceLifetime);
@@ -98,7 +98,7 @@ namespace MessagePipe
             services.Add(serviceType, serviceType, scope);
         }
 
-#if !UNITY_2018_3_OR_NEWER
+#if !UNITY_2018_3_OR_NEWER || MESSAGEPIPE_VCONTAINER_OPEN_GENERIC_SUPPORT
 
         static void Add(this IServiceCollection services, Type serviceType, Type implementationType, InstanceLifetime scope)
         {
